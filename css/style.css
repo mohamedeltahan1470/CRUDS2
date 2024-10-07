@@ -1,78 +1,161 @@
-*{
-    margin:0px;
-    padding:0px;
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
-body{
-    background-color:#444444;
-    color:white;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+body {
+    background-color: #444444;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-.crud{
-    width:80%;
-    margin:auto;
+
+.crud {
+    width: 80%;
+    margin: auto;
 }
-.head{
-    text-align:center;
-    text-transform:uppercase; 
-    margin:10px 0px;
+
+.head {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 10px 0px;
 }
-input{
-    width:100%;
-    height:30px;
+
+input {
+    width: 100%;
+    height: 30px;
     outline: none;
     border: none;
-    background:rgb(17, 17, 17);
-    margin:4px 0px;
-    border-radius:4px;
-    padding:5px;
-    color:#ffffff;
+    background: rgb(17, 17, 17);
+    margin: 4px 0px;
+    border-radius: 4px;
+    padding: 5px;
+    color: #ffffff;
+    transition: transform 0.3s ease-in-out;
 }
-input:focus{
+
+input:focus {
     background-color: #000;
-    transform:scale(1.1);
+    transform: scale(1.05);
 }
-.price input{
-    width:20%;
+
+.price input {
+    width: 23%; /* Adjusted to make space for 4 input fields */
 }
-#total{
+
+#total {
     background-color: #a00d0a;
-    padding:5px 2px;
-    border-radius:4px;
+    padding: 5px 2px;
+    border-radius: 4px;
+    display: inline-block;
+    width: auto;
 }
-#total::before{
-    content:'total:';
+
+#total::before {
+    content: 'Total:';
 }
-button{
-    width:100%;
-    height:30px;
-    border:none;
-    cursor:pointer;
-    background:#51007c;
-    color:#fff;
-    border-radius:20px;
+
+button {
+    width: 100%;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    background: #51007c;
+    color: #fff;
+    border-radius: 20px;
+    transition: background-color 0.3s ease-in-out;
 }
-button:hover{
-    background:#b52dff;
-    letter-spacing:1px;
+
+button:hover {
+    background: #b52dff;
+    letter-spacing: 1px;
 }
-.btnsearch{
-    display:flex;
+
+.btnsearch {
+    display: flex;
     justify-content: space-between;
 }
-.btnsearch button{
-    width:45%;
+
+.btnsearch button {
+    width: 45%;
 }
-table{
-    width:100%;
-    text-align:center;
-    margin:10px 0;
+
+table {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
 }
-table th{
+
+table th {
     text-transform: uppercase;
 }
-table th , td{
-    padding:5px;
+
+table th, td {
+    padding: 5px;
 }
-#deleteall{
-    margin:20px 0px;
+
+#deleteall {
+    margin: 20px 0px;
+}
+
+/*///////// RESPONSIVENESS ////////*/
+
+@media (max-width: 768px) {
+    .crud {
+        width: 90%;
+    }
+
+    .price input {
+        width: 48%; /* Make price, taxes, ads, and discount inputs full width in two columns */
+    }
+
+    .btnsearch {
+        flex-direction: column; /* Stack search buttons */
+    }
+
+    .btnsearch button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    table {
+        font-size: 14px; /* Reduce font size on smaller screens */
+    }
+
+    table, th, td {
+        word-break: break-word; /* Prevent text overflow */
+    }
+}
+
+@media (max-width: 480px) {
+    .crud {
+        width: 100%;
+    }
+
+    .inputs, .outputs {
+        flex-direction: column; /* Stack inputs and outputs vertically */
+    }
+
+    .price input {
+        width: 100%; /* Make all inputs full width */
+        margin-bottom: 10px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    table th, table td {
+        padding: 3px;
+    }
+
+    table {
+        overflow-x: auto; /* Enable horizontal scrolling on smaller screens */
+        display: block;
+    }
+
+    table tr {
+        display: inline-block;
+        white-space: nowrap;
+    }
 }
