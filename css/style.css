@@ -1,60 +1,58 @@
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
-
 body {
     background-color: #444444;
     color: white;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Lucida Sans', Geneva, sans-serif;
+    padding: 20px;
 }
-
 .crud {
-    width: 80%;
+    max-width: 100%;
     margin: auto;
 }
-
 .head {
     text-align: center;
     text-transform: uppercase;
-    margin: 10px 0px;
+    margin: 20px 0; 
+    font-size: 2em; 
+    font-weight: bold; 
+    color: #ffffff; 
+    border-bottom: 2px solid #a00d0a; 
+    padding-bottom: 10px; 
 }
-
 input {
     width: 100%;
     height: 30px;
     outline: none;
     border: none;
     background: rgb(17, 17, 17);
-    margin: 4px 0px;
+    margin: 4px 0;
     border-radius: 4px;
     padding: 5px;
     color: #ffffff;
-    transition: transform 0.3s ease-in-out;
 }
-
-input:focus {
-    background-color: #000;
-    transform: scale(1.05);
+.price {
+    display: flex;
+    flex-wrap: wrap;
 }
-
 .price input {
-    width: 23%; /* Adjusted to make space for 4 input fields */
+    width: 48%;
+    margin-right: 2%;
 }
-
+@media (max-width: 768px) {
+    .price input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
 #total {
     background-color: #a00d0a;
     padding: 5px 2px;
     border-radius: 4px;
-    display: inline-block;
-    width: auto;
 }
-
-#total::before {
-    content: 'Total:';
-}
-
 button {
     width: 100%;
     height: 30px;
@@ -63,99 +61,104 @@ button {
     background: #51007c;
     color: #fff;
     border-radius: 20px;
-    transition: background-color 0.3s ease-in-out;
 }
-
 button:hover {
     background: #b52dff;
     letter-spacing: 1px;
 }
-
 .btnsearch {
     display: flex;
     justify-content: space-between;
+    margin-top: 10px;
 }
-
 .btnsearch button {
     width: 45%;
 }
-
+@media (max-width: 768px) {
+    .btnsearch {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .btnsearch button {
+        width: 100%;
+    }
+}
 table {
     width: 100%;
     text-align: center;
     margin: 10px 0;
+    border-collapse: collapse;
 }
-
+table th, table td {
+    padding: 10px 5px;
+}
 table th {
     text-transform: uppercase;
+    font-weight: bold;
 }
-
-table th, td {
-    padding: 5px;
+table, th, td {
+    border: 1px solid white;
 }
-
 #deleteall {
-    margin: 20px 0px;
+    margin: 20px 0;
 }
-
-/*///////// RESPONSIVENESS ////////*/
-
-@media (max-width: 768px) {
-    .crud {
-        width: 90%;
-    }
-
-    .price input {
-        width: 48%; /* Make price, taxes, ads, and discount inputs full width in two columns */
-    }
-
-    .btnsearch {
-        flex-direction: column; /* Stack search buttons */
-    }
-
-    .btnsearch button {
-        width: 100%;
-        margin: 5px 0;
-    }
-
-    table {
-        font-size: 14px; /* Reduce font size on smaller screens */
-    }
-
-    table, th, td {
-        word-break: break-word; /* Prevent text overflow */
-    }
-}
-
-@media (max-width: 480px) {
-    .crud {
-        width: 100%;
-    }
-
-    .inputs, .outputs {
-        flex-direction: column; /* Stack inputs and outputs vertically */
-    }
-
-    .price input {
-        width: 100%; /* Make all inputs full width */
-        margin-bottom: 10px;
-    }
-
-    table {
-        font-size: 12px;
-    }
-
-    table th, table td {
-        padding: 3px;
-    }
-
-    table {
-        overflow-x: auto; /* Enable horizontal scrolling on smaller screens */
+@media (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
         display: block;
     }
-
     table tr {
-        display: inline-block;
-        white-space: nowrap;
+        margin-bottom: 10px;
+    }
+    table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+    table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        text-align: left;
+        font-weight: bold;
+    }
+}
+table {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+    border-collapse: collapse;
+    overflow-x: auto;
+table th, table td {
+    padding: 10px 5px;
+    word-wrap: break-word; 
+}
+table th {
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: #222;
+}
+table, th, td {
+    border: 1px solid white;
+}
+@media (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    table tr {
+        margin-bottom: 10px;
+    }
+    table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+    table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        text-align: left;
+        font-weight: bold;
     }
 }
